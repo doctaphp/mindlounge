@@ -1,0 +1,424 @@
+/****************************************************************************
+							Mind Lounge Styles 
+								   from 
+							post.php & chat.php
+*****************************************************************************/
+
+
+/**********************************************************************************/
+html { 
+	background: url('../images/Bground1.jpg') no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	font-family: 'Cherry Cream Soda', cursive;
+	overflow-x: hidden;	
+	height: 100%;
+	top:0;
+	bottom:0;
+}
+/*****************************Main Title*****************************************************/
+#topTitle{
+	background:url('../images/title.png')no-repeat;
+	margin: 0px auto 9px;
+	width:583px;
+	height: 200px;  
+	cursor:pointer;
+	background-position: -0px -00px;
+	-webkit-transition: all .4s ease;
+    -moz-transition: all .4s ease;
+    -o-transition: all .4s ease;
+    transition: all .4s ease;	
+}
+#topTitle:hover{
+	background:url('../images/title1.png')no-repeat; 
+}
+/****************************************BUTTONS and SUCH******************************************/
+input[type=button],input[type="submit"], #leave, 
+.JoinChat{
+	margin-left: 80%;
+	padding: 6px 15px;
+	background-color:#F06210;
+	font-size:115%;
+	font-weight:700;
+	cursor:pointer;
+	color: #000;
+	box-shadow: 1px 1px 5px #000; 
+	border:none;
+	font-family: 'Cherry Cream Soda', cursive;
+	-webkit-transition: all .2s linear;
+    -moz-transition: all .2s linear;
+    -o-transition: all .2s linear;
+    transition: all .2s linear;
+	text-decoration:none;
+}
+input[type="submit"]:hover, #leave:hover,
+.JoinChat:hover,input[type=button]:hover{
+	background-color:#000;
+	color: #F06210;
+	box-shadow: 1px 1px 1px #000; 
+}
+::-moz-selection {
+	background-color:#000066;
+	color:#F06210;
+}
+::selection {
+	background-color:#000066;
+	color:#F06210;
+}
+
+#wrapper{
+	width:880px;
+	margin-top:51px;
+	margin-left:30%;
+	
+}
+.main_container{
+	position: relative;
+	width: 590px;
+	height:100px;
+	
+}
+#feed_head {
+    overflow: hidden;
+    border-top: none;
+    height: 100px;
+    line-height: 100px;
+    
+    font-size: 50px;
+    text-align: center;
+	margin: auto;
+	width:100%;
+	text-shadow:1px 1px 1px #000,
+		-1px 1px 1px #000,
+		1px -1px 1px #000,
+		-1px -1px 1px #000,
+		3px 3px 2px #000;
+}
+.feeds{
+word-wrap: break-word;
+	position: relative;
+}
+.feeds_container{
+	position: relative;
+	box-shadow: 3px 3px 5px black;
+	background:rgba(255,255,255,0.50);
+}
+
+.feeds ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.feeds li {
+	padding: 14px 15px;
+	line-height:1.5;
+    font-size: 13px;
+    color: #000;
+    position: relative;
+    border-top: 2px solid black;
+}
+.feeds li.odd {
+    border-top: 1px solid black;
+}
+.feeds li .feedtext {
+    display: block;
+	text-align:left;
+}
+.feeds .loading {
+    position: absolute;
+    left: 1px;
+    bottom: 1px;
+    padding: 0px 0;
+	background:rgba(255,255,55,0.0);
+    overflow: hidden;
+}
+.loading {
+	display: none;
+	width: 590px;
+	margin:auto;
+	text-align:center;
+	
+}
+.IdeaForm{
+	
+	margin-top:47.7%;
+}
+
+.feedTitle{
+	font-family: 'Chivo', cursive;
+	
+	font-size: 22px;
+	
+}
+.left{
+	font-size: 18px;
+	text-decoration:bolder;
+	
+}
+.date{
+	color: #333;
+	font-size: 12px;
+}
+/*******************************************************************
+							top Menu
+*******************************************************************/
+
+.top_menu ul {
+    margin: 0; 
+    padding: 0;
+    width:100%;
+	height:50px;
+    list-style-type: none;
+	background-color: rgba(0,0,0,1);
+	position:fixed;
+	top:0;
+	left:0;
+	
+}
+
+.top_menu ul li a {
+    text-decoration: none;
+    color: white; 
+    padding:  15px 0px 0 0;
+	width:220px;
+	height:35px;
+    display:block;
+	float:left;
+	margin:auto;
+	text-align:center;
+	font-weight:900;
+	-webkit-transition: background 0.5s linear;
+	-moz-transition: background 0.5s linear;
+	-o-transition: background 0.5s linear;
+	transition: background 0.5s linear;
+}
+
+ 
+.top_menu ul li a:hover, .top_menu ul li .current {
+    color: #000;
+    background-color:#F06210;
+	text-shadow:-1px -1px 1px #fff;
+	font-weight:900;
+}
+.menuLogo {
+	background-color: rgba(0,0,0,.00);
+	padding:-15px 0px; 
+	background: url('../images/titleMenu.png'); 
+	background-position:0px 0px;
+		
+}
+.menuLogo:hover {
+	background-color: rgba(0,0,0,.00);
+	padding:-15px 0px;  
+	background: url('../images/titleMenu2.png'); 
+
+}
+.topScroll ul {
+	background-color: rgba(0,0,0,.35);	
+}
+.topScroll ul li a {
+    color: rgba(255,255,255,.75);
+}
+.topScroll ul li a:hover {
+	color: #999;
+    background-color:rgba(0,0,0,.5);
+	text-shadow:1px 1px 1px #000;
+	
+}
+.topScroll ul li a:active {
+	color: #000;
+    background-color:#F06210;
+
+}
+/**********************************************************************************************
+										Form For Adding Ideas
+**********************************************************************************************/
+#add-news-form{
+	position:absolute;
+	text-align:center;
+	
+}
+#add-news-form input[type=text]{
+	padding: 5px 0px 7px 5px;
+	font-weight:400;
+	font-size:15px;
+	background: #e1e1e1;
+	border: 1px solid #cdcdcd;
+	font-family: 'Cherry Cream Soda', cursive;
+    position: relative;
+	box-shadow: 3px 3px 5px black;
+	width:270px;
+}
+#add-news-form label{
+	color: #F06210;
+	text-shadow: 2px 2px 2px #111;
+	font-size:20px;
+	line-height:2;
+}
+#add-news-form textarea {
+	text-decoration:bold;
+	color:white;
+	font-size:15px;
+	font-family: 'Cherry Cream Soda', cursive;
+	background:rgba(240,98,16,0.50);
+	background-position: center center;
+	background-repeat: no-repeat;
+	box-shadow: 3px 3px 5px black;
+	height: 80px;
+	width: 293.6%;
+}
+#add-news-form input[type=submit]{
+	margin-top:15px
+}
+#leave{
+	position:fixed;
+	bottom:15;
+	right:15;
+}
+.iconAdd {
+    position: absolute;
+    right: 24px;
+    top: 25px;
+}
+/**********************************************************************************************
+										For chat.php
+**********************************************************************************************/
+#feed_head_1 {
+    letter-spacing: 1px;
+	word-spacing: -0px;
+    border-top: none;
+    line-height: 1.2;
+    color: #F06210;
+    font-size: 30px;
+    text-align: center;
+	margin: auto;
+	padding:25px 15px 25px;
+	text-shadow:.5px .5px .5px #000,
+		-.5px .5px .5px #000,
+		.5px -.5px .5px #000,
+		-.5px -.5px .5px #000,
+		2px 2px 1px #000;
+		word-wrap: break-word;
+
+	
+}
+#feed_head_2 {
+word-wrap: break-word;
+	letter-spacing: 1px;
+	word-spacing: 1px;
+	line-height: 1.5;
+    border-top: none;
+    color: #000;
+	font-family: 'Chivo', cursive;
+    font-size: 20px;
+    text-align: justify;
+	margin: auto;
+	padding:25px 35px;
+	text-shadow:-.5px -.5px .5px #fff;
+	border-bottom: 3px solid black;	
+}
+
+ #back_but{
+	position:absolute;
+	top:80;
+	left:15;
+}
+/*********************************************************************
+					Comment Form
+*********************************************************************/
+#CommForm {
+	 position: fixed;
+  width: 275px;
+  height: 100px;
+  left: 72%;
+  top: 25%;
+  margin-left: -100px; /*half the width*/
+}
+#CommForm #add-news-form{
+	position:absolute;
+	text-align:center;
+	margin:0 0 0 15px;
+}
+#CommForm #add-news-form input[type=text]{
+	padding: 5px 0px 7px 5px;
+	font-weight:400;
+	font-size:15px;
+	background: #e1e1e1;
+	border: 1px solid #cdcdcd;
+	font-family: 'Cherry Cream Soda', cursive;
+    position: relative;
+	box-shadow: 3px 3px 5px black;
+	width:270px;
+}
+#CommForm #add-news-form label{
+	color: #F06210;
+	text-shadow: 2px 2px 2px #111;
+	font-size:20px;
+	line-height:2;
+}
+#CommForm #add-news-form textarea {
+	text-decoration:bold;
+	padding: 15px;
+	color:#333;
+	font-size:15px;
+	font-family: 'Cherry Cream Soda', cursive;
+	background: #e1e1e1 ;
+	background-position: center center;
+	background-repeat: no-repeat;
+	box-shadow: 3px 3px 5px black;
+	margin-bottom: 15px;
+}
+#CommForm #add-news-form input[type=submit]{
+	margin-top:15px
+}
+#leave{
+	position:fixed;
+	bottom:15;
+	right:15;
+}
+.iconAdd {
+    position: absolute;
+    right: 24px;
+    top: 25px;
+}
+.commentGuts{
+	font-family: 'Chivo', cursive;
+	color:#000;
+	font-size: 20px;
+	font-weight:900;
+	line-height:1.2;
+}
+
+/*Placeholder style*/
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    white;
+	line-height:2em;
+	font-size: 25pt;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    white;
+   	line-height:2em;
+	font-size: 25pt;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    white;
+   	line-height:2em;
+	font-size: 25pt;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+   color:    white;
+   	line-height:2em;
+	font-size: 25pt;
+}
+
+/*
+						/////////  ////   //  /////////
+						//         ////   //  //       //
+						//////     // //  //  //        //
+						//         //  // //  //        //
+						//         //   ////  //       //
+						////////   //    ///  /////////
+*/

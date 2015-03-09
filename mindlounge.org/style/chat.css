@@ -1,0 +1,103 @@
+#feed_head_1 {
+    letter-spacing: 1px;
+	word-spacing: -0px;
+    border-top: none;
+    line-height: 1.2;
+    color: #F06210;
+    font-size: 30px;
+    text-align: center;
+	margin: auto;
+	padding:25px 15px 25px;
+	text-shadow:.5px .5px .5px #000,
+		-.5px .5px .5px #000,
+		.5px -.5px .5px #000,
+		-.5px -.5px .5px #000,
+		2px 2px 1px #000;
+		word-wrap: break-word;
+
+	
+}
+#feed_head_2 {
+word-wrap: break-word;
+	letter-spacing: 1px;
+	word-spacing: 1px;
+	line-height: 1.5;
+    border-top: none;
+    color: #000;
+	font-family: 'Chivo', cursive;
+    font-size: 20px;
+    text-align: justify;
+	margin: auto;
+	padding:25px 35px;
+	text-shadow:-.5px -.5px .5px #fff;
+	border-bottom: 3px solid black;	
+}
+
+ #back_but{
+	position:absolute;
+	top:80;
+	left:15;
+}
+
+#CommForm {
+	 position: fixed;
+  width: 275px;
+  height: 100px;
+  left: 72%;
+  top: 25%;
+  margin-left: -100px; /*half the width*/
+}
+#CommForm #add-news-form{
+	position:absolute;
+	text-align:center;
+	margin:0 0 0 15px;
+}
+#CommForm #add-news-form input[type=text]{
+	padding: 5px 0px 7px 5px;
+	font-weight:400;
+	font-size:15px;
+	background: #e1e1e1;
+	border: 1px solid #cdcdcd;
+	font-family: 'Cherry Cream Soda', cursive;
+    position: relative;
+	box-shadow: 3px 3px 5px black;
+	width:270px;
+}
+#CommForm #add-news-form label{
+	color: #F06210;
+	text-shadow: 2px 2px 2px #111;
+	font-size:20px;
+	line-height:2;
+}
+#CommForm #add-news-form textarea {
+	text-decoration:bold;
+	padding: 15px;
+	color:#333;
+	font-size:15px;
+	font-family: 'Cherry Cream Soda', cursive;
+	background: #e1e1e1 ;
+	background-position: center center;
+	background-repeat: no-repeat;
+	box-shadow: 3px 3px 5px black;
+	margin-bottom: 15px;
+}
+#CommForm #add-news-form input[type=submit]{
+	margin-top:15px
+}
+#leave{
+	position:fixed;
+	bottom:15;
+	right:15;
+}
+.iconAdd {
+    position: absolute;
+    right: 24px;
+    top: 25px;
+}
+.commentGuts{
+	font-family: 'Chivo', cursive;
+	color:#000;
+	font-size: 20px;
+	font-weight:900;
+	line-height:1.2;
+}
