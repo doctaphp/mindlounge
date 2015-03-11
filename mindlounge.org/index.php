@@ -16,6 +16,75 @@ if(isset($_COOKIE['loggedIn']))
 		<script src="js/forms.js"></script>
 		<link href="style/login.css" rel="stylesheet" type="text/css" />
 		<link href='http://fonts.googleapis.com/css?family=Sarina|Cherry+Cream+Soda' rel='stylesheet' type='text/css'>
+	
+		<script src="plugins/jQuery-File-Upload-9.9.3/js/vendor/jquery.ui.widget.js"></script>
+		<script src="plugins/jQuery-File-Upload-9.9.3/js/jquery.iframe-transport.js"></script>
+		<script src="plugins/jQuery-File-Upload-9.9.3/js/jquery.fileupload.js"></script>
+		<script>
+				$(function () {
+					
+					
+					
+    $('#upload').fileupload({
+		
+        dataType: 'json',
+        add: function (e, data) {
+			
+			
+					
+			
+			if (data.files && data.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            $('#target').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(data.files[0]);
+        
+        
+    }
+			
+            data.context = $('<button/>').text('Choose Picture')
+                .appendTo('#u')
+                .click(function () {
+                    data.context = $('<p/>').text('Uploading...').replaceAll($(this));
+		data.submit();
+                });
+				
+
+        },
+		
+        done: function (e, data) {
+            data.context.text('Upload finished.');
+			data.context.text('');
+			$('#progress .bar').css('width',0);
+        },
+		progressall: function (e, data) {
+        var progress = parseInt(data.loaded / data.total * 100, 10);
+        $('#progress .bar').css(
+            'width',
+            progress + '%'
+        );
+    }
+		
+		
+    });
+	
+});
+				
+	
+
+
+
+
+
+
+
+
+
+
+
+</script>
+		
 	</head>
 <body>
 <div id ="PageWrap">
@@ -74,7 +143,7 @@ if(isset($_COOKIE['loggedIn']))
 	OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
 -->	
 	<div id="signUp" style="display:none">
-		<form id="form2" autocomplete="off" name="form2" method="post" action="signup/signup_ac.php">
+		<form id="form2" name="form2" method="post" action="signup/signup_ac.php">
 			<table id="signuptable" width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#FBF2EF">
 				<tr>
 					<td>
@@ -105,6 +174,25 @@ if(isset($_COOKIE['loggedIn']))
 					<td>
 						<input id="repassword" name="repassword" placeholder="Re-enter password" type="password" class="input" size="30">
 					</td>			
+				</tr>
+				<tr>
+					<td >
+						<div id="u" style="background-color:white;">
+						<br>
+							<input  id="upload" type="file" data-url="plugins/jQuery-File-Upload-9.9.3/server/php/" >
+							
+							<br><br>
+							
+							<img height="100" width="100" id="target" src="" alt="" />
+							
+							
+							<div id="progress">
+								<div class="bar" style="width: 0%;"></div>
+							</div>
+							
+							
+						</div>
+					</td>				
 				</tr>
 				<tr>		
 					<td>
@@ -140,5 +228,6 @@ if(isset($_COOKIE['loggedIn']))
 	
 </footer>
 </div>
+
 </body>
 </html>

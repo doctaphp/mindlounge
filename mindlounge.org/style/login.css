@@ -1,5 +1,5 @@
 /****************************************************************************************
-MIND LOUNGE 1/6/15 Steven 3/8/15
+MIND LOUNGE 1/6/15 Steven
 *****************************************************************************************
 												Global Crud
 **/
@@ -10,6 +10,7 @@ html {
 	-o-background-size: cover;
 	background-size: cover;	
 }
+
 body{ 
     left:0;
 	top: 0;
@@ -330,6 +331,10 @@ footer h1 {
 	
 
 
+}
+.bar {
+    height: 18px;
+    background: green;
 }
 
 
