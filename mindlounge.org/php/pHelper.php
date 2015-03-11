@@ -69,9 +69,9 @@
 /********************************************************************
 	 Getting news Items and preparing sql query with respect to request
 **********************************************************************/
-	$sql = "SELECT * FROM news ORDER BY date DESC LIMIT 0, 10";
+	$sql = "SELECT * FROM news ORDER BY date DESC LIMIT 0, 5";
 	if(isset($_POST['last_time'])){
-		$sql = "SELECT * FROM news WHERE date < '".$_POST['last_time']."' ORDER BY date DESC LIMIT 0, 10";
+		$sql = "SELECT * FROM news WHERE date < '".$_POST['last_time']."' ORDER BY date DESC LIMIT 0, 3";
 	}
 	$resource = mysql_query($sql);
 	$news = array();
