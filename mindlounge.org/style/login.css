@@ -336,6 +336,11 @@ footer h1 {
     height: 18px;
     background: green;
 }
+input[type=file]{
+    width:90px;
+    color:transparent;
+}
+input#profilePic{position:fixed;top:-100px;}
 
 
 /*

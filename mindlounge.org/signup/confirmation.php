@@ -24,11 +24,12 @@ $fname=$rows['fname'];
 $lname=$rows['lname'];
 $email=$rows['email'];
 $pass=$rows['password']; 
+$pic=$rows['profilePic'];
 
 $tbl_name2="registered_members";
 
 // Insert data that retrieves from "temp_members_db" into table "registered_members" 
-$sql2="INSERT INTO $tbl_name2(fname,lname, email, password)VALUES('$fname','$lname', '$email', '$pass')";
+$sql2="INSERT INTO $tbl_name2(fname,lname, email, password, profilePic)VALUES('$fname','$lname', '$email', '$pass', '$pic')";
 $result2=mysql_query($sql2);
 }
 
@@ -50,7 +51,7 @@ echo "<!DOCTYPE html>
 	
 	<div id='confirm'>
 		<table>
-			<form id='form1' name='form1' method='post' action='../index.html'>
+			<form id='form1' name='form1' method='post' action='../index.php'>
 				<tr>
 					<td>
 						<h1>Sorry. Your account activation failed!</h1>
@@ -86,7 +87,7 @@ echo "<!DOCTYPE html>
 	
 	<div id='confirm'>
 		<table>
-			<form id='form1' name='form1' method='post' action='../index.html'>
+			<form id='form1' name='form1' method='post' action='../index.php'>
 				<tr>
 					<td>
 						<h1>Your account has been activated! Welcome</h1>

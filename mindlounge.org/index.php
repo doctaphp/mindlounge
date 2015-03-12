@@ -16,16 +16,36 @@ if(isset($_COOKIE['loggedIn']))
 		<script src="js/forms.js"></script>
 		<link href="style/login.css" rel="stylesheet" type="text/css" />
 		<link href='http://fonts.googleapis.com/css?family=Sarina|Cherry+Cream+Soda' rel='stylesheet' type='text/css'>
-	
+	<script src="http://malsup.github.com/jquery.form.js"></script> 
 		<script src="plugins/jQuery-File-Upload-9.9.3/js/vendor/jquery.ui.widget.js"></script>
 		<script src="plugins/jQuery-File-Upload-9.9.3/js/jquery.iframe-transport.js"></script>
 		<script src="plugins/jQuery-File-Upload-9.9.3/js/jquery.fileupload.js"></script>
-		<script>
-				$(function () {
+	<script>
+		
+		
+				$(document).ready(function() { 
+				
+			/*$("form[name='form2']").submit(function(evt){
+
+				   evt.preventDefault();
+				   $.ajax({
+							 url: '/signup/signup_ac.php',
+							 type: 'post',
+							 data: $('#form2').serialize(),
+							 success: function(data) {
+								   alert(data);
+							 }
+					});
+				   
+				   
+			});*/
+					
+					document.getElementById('image').addEventListener('click',function(){
+			document.getElementById('profilePic').click();
+		});
 					
 					
-					
-    $('#upload').fileupload({
+    $('#profilePic').fileupload({
 		
         dataType: 'json',
         add: function (e, data) {
@@ -34,28 +54,50 @@ if(isset($_COOKIE['loggedIn']))
 					
 			
 			if (data.files && data.files[0]) {
+				
+				
+				
+				
         var reader = new FileReader();
         reader.onload = function(e) {
             $('#target').attr('src', e.target.result);
+			
         }
         reader.readAsDataURL(data.files[0]);
         
         
+        
     }
+	
+	
 			
-            data.context = $('<button/>').text('Choose Picture')
-                .appendTo('#u')
-                .click(function () {
-                    data.context = $('<p/>').text('Uploading...').replaceAll($(this));
-		data.submit();
-                });
+           /* $('#rSub').click(function () {
+					
+					
+					
+					
+
+                    //data.submit();
+					
+					//evt.preventDefault();
+				   $.ajax({
+							 url: '/signup/signup_ac.php',
+							 type: 'post',
+							 data: $('#form2').serialize(),
+							 success: function(data) {
+								  //alert(data);
+							 }
+					});
+					
+					
+		 
+                });*/
 				
 
         },
 		
         done: function (e, data) {
-            data.context.text('Upload finished.');
-			data.context.text('');
+            
 			$('#progress .bar').css('width',0);
         },
 		progressall: function (e, data) {
@@ -69,7 +111,28 @@ if(isset($_COOKIE['loggedIn']))
 		
     });
 	
-});
+	
+	
+	
+	
+	window.pressed = function(){
+    var a = document.getElementById('profilePic');
+    if(a.value == "")
+    {
+        fileLabel.innerHTML = "Choose Picture";
+    }
+    else
+    {
+        var theSplit = a.value.split('\\');
+		//alert(theSplit[theSplit.length-1]);
+		//$('#upload').attr('value', theSplit[theSplit.length-1]);
+        fileLabel.innerHTML = theSplit[theSplit.length-1];
+    }
+};
+	
+
+
+}); 
 				
 	
 
@@ -110,7 +173,7 @@ if(isset($_COOKIE['loggedIn']))
 	OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
 -->
 	<div id="logOn">
-		<form id="form1" autocomplete="off" name="form1" method="post" action="login/checklogin.php">
+		<form id="form1" name="form1" method="post" action="login/checklogin.php">
 			<table id="signuptable" width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#FBF2EF">
 				<tr >
 					<td>
@@ -143,7 +206,7 @@ if(isset($_COOKIE['loggedIn']))
 	OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
 -->	
 	<div id="signUp" style="display:none">
-		<form id="form2" name="form2" method="post" action="signup/signup_ac.php">
+		<form enctype="multipart/form-data" id="form2" name="form2" action="signup/signup_ac.php" method="POST" >
 			<table id="signuptable" width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#FBF2EF">
 				<tr>
 					<td>
@@ -179,11 +242,18 @@ if(isset($_COOKIE['loggedIn']))
 					<td >
 						<div id="u" style="background-color:white;">
 						<br>
-							<input  id="upload" type="file" data-url="plugins/jQuery-File-Upload-9.9.3/server/php/" >
+						
+						<div>
+							<input name="profilePic"  type='file' title="profile pic" id="profilePic" onchange="pressed()"> 
+							<button id="image" type="button">Select image</button><br><br>
+							<img height="100" width="100" id="target" src="" alt="" /><br>
+							<label id="fileLabel">Choose Picture</label>
+						</div>
 							
-							<br><br>
 							
-							<img height="100" width="100" id="target" src="" alt="" />
+							<br>
+							
+							
 							
 							
 							<div id="progress">
@@ -196,7 +266,7 @@ if(isset($_COOKIE['loggedIn']))
 				</tr>
 				<tr>		
 					<td>
-						<input type="submit" name="Submit" value="Sign Up">	
+						<input id="rSub" type="submit" name="Submit" value="Sign Up">	
 					</td>
 				</tr>
 			</table>
