@@ -3,6 +3,7 @@
 		header("Location: index.php");
 		}
 	include_once "config.php";
+	include_once "pHelper2.php";
 /***********************************************************************
 	Adding News for Demo request by applying check on addnews POST parameter
 ************************************************************************/
@@ -40,7 +41,15 @@
 		?>
 		<li class="response" name="<?php echo $item['id'] ?>" id="<?php echo $item['date'] ?>">
 								<span class="feedtext">
-						<img src="http://vignette2.wikia.nocookie.net/le-miiverse-resource/images/d/d0/Funny-profile-pictures-02.jpg/revision/latest?cb=20141022011820" style= "height: 40px; width: 40px; background-color:grey;" class="profilePic">
+								
+						<img src="../profilePics/thumb/thumb
+						<?php 
+						
+						if($MYitem['profilePic'] === NULL){
+							echo("default-avatar.png");}
+						else{
+							echo($MYitem['profilePic']);} ?>" style= "height: 40px; width: 40px; background-color:grey;" class="profilePic">
+							
 						<span class="left">
 						
 						
