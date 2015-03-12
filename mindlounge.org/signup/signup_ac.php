@@ -1,9 +1,10 @@
 <?php
-//phpinfo();
+
 include('../config.php');
+include('../php/thumbHelper.php');
 
 // table name 
-$tbl_name=temp_members_db;
+$tbl_name = "temp_members_db";
 
 // Random confirmation code 
 $confirm_code=md5(uniqid(rand())); 
@@ -17,10 +18,13 @@ $pass = encrypt($pass, ENCRYPTION_KEY);
 
 $picName = basename($_FILES["profilePic"]["name"]);
 
-echo($picName);
 
-$target_dir = "profilePics/";
+
+
+
+$target_dir = "../profilePics/";
 $target_file = $target_dir . basename($_FILES["profilePic"]["name"]);
+
 $uploadOk = 1;
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 // Check if image file is a actual image or fake image
@@ -45,22 +49,28 @@ if ($_FILES["profilePic"]["size"] > 500000) {
     $uploadOk = 0;
 }
 // Allow certain file formats
-/*if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
 && $imageFileType != "gif" ) {
     echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
     $uploadOk = 0;
-}*/
+}
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
     echo "Sorry, your file was not uploaded.";
 // if everything is ok, try to upload file
 } else {
     if (move_uploaded_file($_FILES["profilePic"]["tmp_name"], $target_file)) {
-        echo "The file ". basename( $_FILES["profilePic"]["name"]). " has been uploaded.";
+        //echo "The file ". basename( $_FILES["profilePic"]["name"]). " has been uploaded.";
     } else {
         echo "Sorry, there was an error uploading your file.";
+		print_r(error_get_last());
     }
 }
+$updir = "../profilePics/";
+$img = $picName;
+
+$id="thumb";
+makeThumbnails($updir, $img, $id);
 
 // Insert data into database 
 $sql="INSERT INTO $tbl_name(confirm_code, fname,lname, email, password, profilePic)VALUES('$confirm_code', '$fname','$lname', '$email', '$pass', '$picName')";
@@ -95,10 +105,11 @@ echo "Not found your email in our database";
 
 // if your email succesfully sent
 
-/*if($sentmail){
+if($sentmail){
 echo "<!DOCTYPE html>
 <html>
 	<head>
+		<link rel='Shortcut Icon' href='http://mindlounge.org/images/icon_M.ico' type='image/x-icon' /> 
 		<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'></script>
 		<script src='plugins/additional-methods.min.js'></script>
 		<script src='plugins/jquery.validate.min.js'></script>
@@ -128,6 +139,7 @@ else {
 echo "<!DOCTYPE html>
 <html>
 <head>
+<link rel='Shortcut Icon' href='http://mindlounge.org/images/icon_M.ico' type='image/x-icon' /> 
 		<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'></script>
 		<script src='plugins/additional-methods.min.js'></script>
 		<script src='plugins/jquery.validate.min.js'></script>
@@ -150,6 +162,6 @@ echo "<!DOCTYPE html>
 		</div>
 	</body>
 </html>";
-}*/
+}
 mysql_close($link);
 ?>
