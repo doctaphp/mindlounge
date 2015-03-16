@@ -39,36 +39,32 @@
 				}
 		}
 		?>
-		<li class="response" name="<?php echo $item['id'] ?>" id="<?php echo $item['date'] ?>">
-								<span class="feedtext">
-								
-						<img src="../profilePics/thumb/thumb
-						<?php 
-						
+		<li class="response" name="<?php echo $item['id'] ?>" id="<?php echo $item['date'] ?>">			
+					<span class="left">							
+						<span class="profilePic" id="pic" style="background: url(profilePics/<?php 
 						if($MYitem['profilePic'] === NULL){
-							echo("default-avatar.png");}
-						else{
-							echo($MYitem['profilePic']);} ?>" style= "height: 40px; width: 40px; background-color:grey;" class="profilePic">
+							echo("Default_UserPic.png");}
+								else{
+									echo $MYitem['profilePic'];} 
+									
+							?>)">
 							
-						<span class="left">
-						
-						
-						
-						<?php echo $item['name'] ?>
-						<span class="date"><?php echo $item['date'] ?></span>
 						</span>
-						<br>
-						<br>
-						<span class="feedTitle">
-						<?php echo $item['title'] ?> 
-						<br>
+						<span class="UserName">
+							<?php echo $item['name'] ?>
 						</span>
-						<span >
-
-						<br>
-						<button style="align: right;" class="JoinChat" id="<?php echo $item['id'] ?>" type="button">View Idea</button>
+					</span>
+					<span class="right">
+						<span class="MindFeed">	
+							<?php echo $item['title'] ?> 	
 						</span>
+						<span class="date">
+							<i><?php echo $item['date'] ?></i>
 						</span>
+					</span>
+					<span>
+						<button class="JoinChat" id="<?php echo $item['id'] ?>" type="button">View</button>
+					</span>
 		</li>
 		<?php
 		exit;

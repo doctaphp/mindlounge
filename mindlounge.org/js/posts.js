@@ -3,7 +3,7 @@ $(function(){
 	* Integrating slim scroll
 	**/
 	$("#feeds ul").slimScroll({
-        height: '520px'
+        height: '98%'
     });
 	/**
 	* Integrating Scroll Pagination
@@ -93,30 +93,14 @@ function addNews(){
 }
 
 
-/*$(document).ready(function(){  $(".JoinChat").click(function(){
-  alert(this.id);
-});
-});
 
 
-function join(){
-  
 
-  $('#wrapper').replaceWith("Joined chat <INPUT TYPE='button' onClick='history.go(0)' VALUE='Back'>");
- alert(this.id);
- 
-
-}	*/
-
-/*
-$( document ).ready(function() {
-    $('body').on('click','.JoinChat',function (e) {
-      $('#wrapper').replaceWith("Joined chat <INPUT TYPE='button' onClick='history.go(0)' VALUE='Back'>");
-	  });
-  });*/
-  
   $( document ).ready(function() {
-  
+	  
+	
+	  
+	  
  // $('.feedtext').emoticonize();
   
     $('body').on('click','.JoinChat',function (e) {
