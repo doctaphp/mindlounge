@@ -1,50 +1,53 @@
 
 
 
-$(document).ready(function() {	
 
+$(function() {	
 
-	
-		
-		
-	
-////////////////////////////////////////Steven Code 3/13/15, 3/14
+ 
+////////////////////////////////////////Steven Code 3/13/15, 3/14, 3/18
 //Change font size in news feed
+var shareForm =  $('.post textarea');
+	
 	$(".MindFeed").each(function() {
 		$(this).addClass($(this).text().length > 60 ? "MindFeedLG" : "MindFeedSM");		
 	});
 	
-	$("#pulldown").click(function(){
-		
-		if ($('input,textarea').attr('')) 
-		{
-			$('input,textarea').blur(slideUp());
-		} 
-		else 
-		{
-			$('input,textarea').focus(slideDown());			
-		}
-        
-   
-}); 
-	
-	
-		$("#shareButt").click(function(){
-			addNews();
-			$('input,textarea').blur(slideUp());
-		}); 
-		
-		
-    
+    shareForm.focus(slideDown);
+	shareForm.blur(slowUP);	
+
+	$("#shareButt").click(function(){
+		addNews();
+		$( shareForm ).val("");
+	});
 //Back button control	
 	$('.backButt').click(function(){
 		parent.history.back();
 		return false;
 	});	
+ function slowUP(){
+	setTimeout(function() { 
+	$(shareForm).attr('placeholder',"What's on your mind?");
+	$(shareForm).animate({ height: 40 }, 000);
+	$('#shareButt, #pulldown p').hide();
+	$('.feeds_container').removeClass('containerSlide'); 
+	$('.IdeaForm').removeClass('IdeaFormSlide');  }, 500);
+	
+};  
 
+////FOR CONTACT FORM contact.html
+$('#contactForm input[type="text"],#contactForm textarea,#add-news-form textarea.CommentTextarea ').focus(function(){
+		   $(this).data('placeholder',$(this).attr('placeholder'))
+		   $(this).attr('placeholder','');
+		});
+	$('#contactForm input[type="text"],#contactForm textarea,#add-news-form textarea.CommentTextarea ').blur(function(){
+		   $(this).attr('placeholder',$(this).data('placeholder'));
+		});	
+	$("#contact").submit(function(e){
+    e.preventDefault();
+    alert('Sorry about that. We are still working on this form.');
+  });	
 });
-  
-
 function slideDown() {
 	$(this).data('placeholder',$(this).attr('placeholder'));
 	$(this).attr('placeholder',''); 	
@@ -53,26 +56,20 @@ function slideDown() {
 	$('.feeds_container').addClass('containerSlide'); 
 	$('.IdeaForm').addClass('IdeaFormSlide'); 
 		var Winheight = $(window).height();
-		if (Winheight <= 580) {
+		if (Winheight <= 580)
+			{
 			$(this).animate({ height: '9%' }, 500);
 				}
-				else if (Winheight > 580 && Winheight < 2050){
+				else if (Winheight > 580 && Winheight < 2050)
+					{
 					$(this).animate({ height: '79%' }, 300);
-					}	
-					else{
+						}	
+						else
+						{
 						$(this).animate({ height: '99%' }, 200);
-				}
+							}
 	
 };
-function slideUp() {
-	var ht = $(this).attr('data-default');
-	
-	$(this).attr('placeholder',$(this).data('placeholder'));
-	$(this).attr('placeholder',"What's on your mind?"); 
-	$(this).animate({ height: ht }, 000);
-	$('#shareButt, #pulldown p').hide();
-	$('.feeds_container').removeClass('containerSlide'); 
-	$('.IdeaForm').removeClass('IdeaFormSlide'); 
-};	  
-  
-  
+ 
+
+

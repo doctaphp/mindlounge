@@ -1,5 +1,5 @@
 /****************************************************************************************
-MIND LOUNGE 1/6/15 Steven
+MIND LOUNGE 1/6/15 Steven 3/20/15
 *****************************************************************************************
 												Global Crud
 **/
@@ -33,7 +33,9 @@ body{
 	color:#F06210;
 }
 input[type="submit"],
-input[type="reset"]{
+input[type="reset"],
+input[type="reset"],
+button#image{
 	padding: 6px 15px;
 	background-color:#F06210;
 	font-size:115%;
@@ -42,18 +44,19 @@ input[type="reset"]{
 	color: #000;
 	box-shadow: 1px 1px 5px #000; 
 	border:none;
+	outline:none;
 	-webkit-transition: all .2s linear;
     -moz-transition: all .2s linear;
     -o-transition: all .2s linear;
     transition: all .2s linear;
+	font-family: 'Cherry Cream Soda', cursive;
 }
 input[type="submit"]:hover,
-input[type="reset"]:hover{
+input[type="reset"]:hover,
+button#image:hover{
 	background-color:#000;
 	color: #F06210;
-	box-shadow: 1px 1px 1px #000; 
-	
-	
+	box-shadow: 1px 1px 1px #000; 	
 }
 input[type="password"], input[type="text"]{
 	padding: 6px 15px;
@@ -83,12 +86,64 @@ td .formTitle{
 	font-weight:900;
 }
 td{
- text-align:center;
+	text-align:center;
+	
+ 
 }
 #wrapper{
 	width:1140px;
 	margin:auto;	
 }
+table #signuptable{
+	margin-bottom:150px
+}
+/*******image input************/
+#Pick-a-Pic{
+	background-color:#000;
+	color: #F06210;
+	background-color: rgba(255, 255, 255, .7);
+	width:382px;
+	margin:auto;
+	padding: 15px 15px 0;
+
+}
+label#fileLabel{
+	width:100%;
+	margin:auto;
+	color:#000;
+	font-size:18px;
+	display:block;
+	padding-bottom:8px;
+
+}
+
+img#target{
+	width:135px;
+	padding:12px;
+}
+input#profilePic{
+	position:absolute;
+	top:-100px;
+}
+button#image{
+	font-size:14px;
+	background-color:rgba(255, 255, 255, .3);
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	border: 2px solid black
+}
+
+.bar {
+    height: 18px;
+    background: green;
+}
+input[type=file]{
+    width:90px;
+    color:transparent;
+}
+
+
 /****************************************************************************************
 											Forms
 ****************************************************************************************/
@@ -190,25 +245,31 @@ a #or{
 /****************************************************************************************
 											Form Validation
 ****************************************************************************************/
-#form1 input.error {
-	color: rgb(255, 0, 0);
+#form1 input.error ,#form2 input.error{
+	color: red;
+	background-color: #fff;
+	outline: 3px solid red;
 }
-#form1 input.valid{
+#form1 input.valid, #form2 input.valid{
 	color: #000;
-	background-color: rgba(255, 255, 255, 1);
+	background-color: #fff;
 	
 }
-#form1 .input{
+#form1 .input, #form2 .input{
 	background-color: rgba(255, 255, 255, .7);
+	border:none;
+	
 }
-#form2 input.error {
-	background-color: rgba(255, 0, 0, .7);
+#form1 .input:focus, #form2 .input:focus{
+	background-color: #ddd;
+	color:#333;
+	border:none;
+	outline:none;
 }
-#form2 .input{
-	background-color: rgba(255, 255, 255, .7);
-}
-#form2 input.valid{
-	background-color: rgba(51, 102, 0, .7);
+label.error{
+	 text-align:left;
+	 color:red;
+	 font-size: 14px;
 }
 #confirm{
 	margin: 10% auto;
@@ -332,15 +393,7 @@ footer h1 {
 
 
 }
-.bar {
-    height: 18px;
-    background: green;
-}
-input[type=file]{
-    width:90px;
-    color:transparent;
-}
-input#profilePic{position:fixed;top:-100px;}
+
 
 
 /*

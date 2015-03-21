@@ -9,11 +9,12 @@
 ************************************************************************/
 	if(isset($_POST['addnews'])){
 		$news = filter_input(INPUT_POST, 'news', FILTER_SANITIZE_SPECIAL_CHARS);
-		$name = $_COOKIE['fname'];
-		$title = substr($news,0,250);
+		$name = mysql_real_escape_string($_COOKIE['fname']);
+		$title = mysql_real_escape_string(substr($news,0,250));
 		
 		
-		$sql = "INSERT INTO news (description, name, date, title) VALUES ('".$news."', '".$name."', '".date('Y-m-d H:i:s')."' ,'".$title."')";
+		
+		$sql = "INSERT INTO news (description, name, date, title, email) VALUES ('".$news."', '".$name."', '".date('Y-m-d H:i:s')."' ,'".$title."','".$_COOKIE['email']."')";
 		//$sql = "INSERT INTO news (description, name, date) VALUES ('".$news."', '".$name."', '".date('Y-m-d H:i:s')."')";
 		mysql_query($sql);
 		}
@@ -41,13 +42,12 @@
 		?>
 		<li class="response" name="<?php echo $item['id'] ?>" id="<?php echo $item['date'] ?>">			
 					<span class="left">							
-						<span class="profilePic" id="pic" style="background: url(profilePics/<?php 
-						if($MYitem['profilePic'] === NULL){
-							echo("Default_UserPic.png");}
-								else{
-									echo $MYitem['profilePic'];} 
-									
-							?>)">
+						<span class="profilePic" id="pic" style="background-image: url(http://mindlounge.org/profilePics/<?php 
+						if(!select($item['email']))
+						{
+							echo 'Default_UserPic.png';
+						}
+						else {echo(select($item['email']));}	?>)">
 							
 						</span>
 						<span class="UserName">
@@ -56,7 +56,7 @@
 					</span>
 					<span class="right">
 						<span class="MindFeed">	
-							<?php echo $item['title'] ?> 	
+							<?php echo $item['title']; ?> 	
 						</span>
 						<span class="date">
 							<i><?php echo $item['date'] ?></i>

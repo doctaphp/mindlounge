@@ -24,11 +24,11 @@
 		
 </head>
 <body>
-<div id="wrapper">
+<div class="wrapper">
 	<div class="feeds_container">	
 		<div class="IdeaForm">
 			<div id="pulldown">
-				<form action="" id="add-news-form" method="post">				
+				<form action="" id="add-news-form" method="post" class="post">				
 					<textarea placeholder="What's on your mind?" name="news" class="big" id="news" ></textarea>					
 				</form>
 				<p style="display:none;">hit the button to post &#10152;<p>
@@ -40,13 +40,14 @@
 				<?php foreach($news as $item): ?>
 				<li name="<?php echo $item['id'] ?>" id="<?php echo $item['date'] ?>">			
 					<span class="left">							
-						<span class="profilePic" id="pic" style="background: url(profilePics/<?php 
-						if($MYitem['profilePic'] === NULL){
-							echo("Default_UserPic.png");}
-								else{
-									echo $MYitem['profilePic'];} 
-									
-							?>)">
+						<span class="profilePic" id="pic" style="background-image: url(http://mindlounge.org/profilePics/<?php 
+						if(!select($item['email']))
+						{
+							echo 'Default_UserPic.png';
+						}
+						else {echo(select($item['email']));	}	?>)">
+							
+						</span>
 							
 						</span>
 						<span class="UserName">
@@ -55,7 +56,7 @@
 					</span>
 					<span class="right">
 						<span class="MindFeed">	
-							<?php echo $item['title'] ?> 	
+							<?php echo $item['title'];  ?> 	
 						</span>
 						<span class="date">
 							<i><?php echo $item['date'] ?></i>
@@ -75,10 +76,10 @@
 </div>	
 <nav class="top_menu">
 	<ul>
-		<li><span class="MLlogo"></span></li>
-		<li class="backButt">BACK &nbsp;</a></li>
-		<li><a href="http://mindlounge.org">ABOUT &nbsp;</a></li>
-		<li><a href="http://mindlounge.org">CONTACT &nbsp;</a></li>
+		<li><a class="MLlogo" href="http://mindlounge.org"></a></li>
+		<li class="backButt">BACK &nbsp;</li>
+		<li><a href="/links/About.html">ABOUT &nbsp;</a></li>
+		<li><a href="/links/Contact.html">CONTACT &nbsp;</a></li>
 		<li><a href="login/logout.php">LOGOUT &nbsp;</a></li>
 		<li><span class="profileLink">PROFILE &nbsp; <div class="profile"><h1>coming soon:<br />user profile details.</h1></div></span></li>
 	</ul>

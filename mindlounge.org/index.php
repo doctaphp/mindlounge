@@ -1,9 +1,9 @@
-<?php
+<?php 
 if(isset($_COOKIE['loggedIn']))
 	{
 	header("Location: posts.php");
 	}
-?>
+ ?>
 
 <!DOCTYPE html>
 <html>
@@ -17,62 +17,6 @@ if(isset($_COOKIE['loggedIn']))
 		<link href="style/login.css" rel="stylesheet" type="text/css" />
 		<link href='http://fonts.googleapis.com/css?family=Sarina|Cherry+Cream+Soda' rel='stylesheet' type='text/css'>
 	
-	<script>
-		
-		
-				$(document).ready(function() { 
-				
-			
-					
-					document.getElementById('image').addEventListener('click',function(){
-			document.getElementById('profilePic').click();
-		});
-					
-					
-  
-	
-	
-	
-	
-	
-	window.pressed = function(){
-    var a = document.getElementById('profilePic');
-    if(a.value == "")
-    {
-        fileLabel.innerHTML = "Choose Picture";
-    }
-    else
-    {
-		var file = $('#profilePic')[0].files[0];
-		var reader = new FileReader();
-		reader.readAsDataURL(file);
-		reader.onload = function(e) {
-			var img = $('#target');
-			img.attr('src', this.result);
-		}
-        var theSplit = a.value.split('\\');
-		
-        fileLabel.innerHTML = theSplit[theSplit.length-1];
-    }
-};
-	
-
-
-}); 
-				
-	
-
-
-
-
-
-
-
-
-
-
-
-</script>
 		
 	</head>
 <body>
@@ -89,8 +33,8 @@ if(isset($_COOKIE['loggedIn']))
 	<div id="holder">
 		<div id="about">
 			Welcome to MindLounge! We are dedicated to providing a <strong>DRAMA</strong>
-			free "social network." Feel free to share your thoughts and indulge in others too!
-			Have fun! <br><a href="#">About us</a>
+			free "social network." Feel free to share your thoughts and indulge in others!
+			 <br /><a href="/links/About.html">About us</a>
 		</div>
 	</div>
 <!--
@@ -100,7 +44,7 @@ if(isset($_COOKIE['loggedIn']))
 -->
 	<div id="logOn">
 		<form id="form1" name="form1" method="post" action="login/checklogin.php">
-			<table id="signuptable" width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#FBF2EF">
+			<table id="" width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="">
 				<tr >
 					<td>
 						<input id="form1email" name="form1email" placeholder="Email" type="text" class="input" size="30">
@@ -133,7 +77,7 @@ if(isset($_COOKIE['loggedIn']))
 -->	
 	<div id="signUp" style="display:none">
 		<form enctype="multipart/form-data" id="form2" name="form2" action="signup/signup_ac.php" method="POST" >
-			<table id="signuptable" width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#FBF2EF">
+			<table id="signuptable"  cellpadding="3" cellspacing="1" bgcolor="#FBF2EF">
 				<tr>
 					<td>
 						<input id="fname" class="input" name="fname" placeholder="First name" type="text"  size="30"> 
@@ -165,27 +109,22 @@ if(isset($_COOKIE['loggedIn']))
 					</td>			
 				</tr>
 				<tr>
-					<td >
-						<div id="u" style="background-color:white;">
-						<br>
+					<td>
+						<div id="Pick-a-Pic">
+						
 						
 						<div>
+							<label id="fileLabel">Choose a Profile Picture</label>
 							<input name="profilePic"  type='file' title="profile pic" id="profilePic" onchange="pressed()"> 
+							<img id="target" src="" alt="" /><br>
 							<button id="image" type="button">Select image</button><br><br>
-							<img height="100" width="100" id="target" src="" alt="" /><br>
-							<label id="fileLabel">Choose Picture</label>
+							
+							
 						</div>
-							
-							
-							<br>
-							
-							
-							
 							
 							<div id="progress">
 								<div class="bar" style="width: 0%;"></div>
 							</div>
-							
 							
 						</div>
 					</td>				
@@ -212,8 +151,8 @@ if(isset($_COOKIE['loggedIn']))
 				<div id="map">
 					<ul >
 						<li><a href ="#">&nbsp; Home &nbsp;</a>|&nbsp;</li>
-						<li><a href ="#">&nbsp; About &nbsp;</a>|&nbsp;</li>
-						<li><a href ="#">&nbsp; Contact &nbsp;</a></li>
+						<li><a href="/links/About.html">&nbsp; About &nbsp;</a>|&nbsp;</li>
+						<li><a href ="/links/Contact.html">&nbsp; Contact &nbsp;</a></li>
 					</ul>
 				</div>
 				<div id ="copy">

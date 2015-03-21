@@ -1,0 +1,71 @@
+
+
+<html>
+<head>
+	<title>Mind Lounge</title>
+		
+	<link rel="Shortcut Icon" href="../images/icon_M.ico" type="image/x-icon" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!---JavaScrip--JavaScrip--JavaScrip--JavaScrip--JavaScrip--JavaScrip--JavaScrip--->
+	<link rel="Shortcut Icon" href="images/icon_M.ico" type="image/x-icon" /> 
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/additional-methods.min.js"></script>
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+	<script src="../js/pHelper.js"></script>
+<!---CSS--CSS--CSS--CSS--CSS--CSS--CSS--CSS--CSS--CSS--CSS--CSS--CSS--CSS--CSS--CSS-->	
+	<link href="../style/styles.css" rel="stylesheet" type="text/css" />
+	<link href="plugins/jspkg-archive/stylesheets/jquery.cssemoticons.css" media="screen" rel="stylesheet" type="text/css" />
+	<link href='http://fonts.googleapis.com/css?family=Cherry+Cream+Soda|Archivo+Narrow:400,400italic' rel='stylesheet' type='text/css'>			
+</head>
+<body>
+<div class="wrapper">
+	<div class="PageContent">
+	<h1>Contact</h1>
+		<div id="contactForm">
+			<form id="contact" name="contact" method ="post" action="../php/contact.php" >
+				<ul>
+					<li><input id="frstName" name="fName"  type="text" 
+						placeholder="First Name" size="15"/>
+					</li>
+					<li>
+						<input  id="lastName" name="lName"  type="text" 
+						placeholder="Last Name" />
+					</li>			
+					<li>
+						<input class="inPut" id="emailaddress" name="emailaddress"  type="text" 
+						placeholder="Your email " />
+					</li>
+					<li>
+						<textarea  name="message" id="messageBox" rows='6' type="text" placeholder="Your Message"></textarea>
+					</li>				
+					<li >
+						<input  type ="reset"  value = "Reset" /> <br /><br />
+						<input class = "FormOK" type="submit" value="Submit"  /> 
+					</li>
+				</ul>
+			</form>
+			
+		</div>
+		<div id="theTEAM">
+			Our team:<br />
+			<a href="mailto:dhipw94@gmail.com?Subject=Hello" target="_top"><b>Dave Cribbs</b></a>: 
+			Creator, team leader, primary programmer. 
+			<a href="mailto:dhipw94@gmail.com?Subject=Hello" target="_top">email</a> him.<br />
+			<a href="http://www.sclarkgo.com" target="blank"><b>Steven Clark</b></a>:  Designer. 
+			check out more of <a href="http://www.sclarkgo.com" target="blank">his work</a>.
+		</div>		
+	</div>
+</div>	
+<nav class="top_menu">
+	<ul>
+		<li><a class="MLlogo" href="http://mindlounge.org"></a></li>
+		<li class="backButt">BACK &nbsp;</li>
+		<li><a href="About.html">ABOUT &nbsp;</a></li>
+		<li  class="ThisPage" >CONTACT &nbsp;</li>
+		<li><a href="../login/logout.php">LOGOUT &nbsp;</a></li>
+		<li><span class="profileLink">PROFILE &nbsp; <div class="profile"><h1>coming soon:<br />user profile details.</h1></div></span></li>
+	</ul>
+</nav>
+</body>
+</html>
+

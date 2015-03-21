@@ -32,7 +32,7 @@ $date=$rows['date'];
 /**
 * Adding News for Demo request by applying check on addnews POST parameter
 **/
-if(isset($_POST['addnews'])){
+if(isset($_POST['chat_addnews'])){
 	$news = filter_input(INPUT_POST, 'news', FILTER_SANITIZE_SPECIAL_CHARS);
 	$name = $_COOKIE['fname'];
 	$title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -43,12 +43,12 @@ if(isset($_POST['addnews'])){
 /**
 * Preparing and getting response for latest feed items.
 **/
-if(isset($_POST['latest_news_time'])){
+if(isset($_POST['chat_latest_news_time'])){
 	$sql = "SELECT * FROM comments_$id ";  
-	$sql .= "WHERE date > '".$_POST['latest_news_time']."' ";
+	$sql .= "WHERE date > '".$_POST['chat_latest_news_time']."' ";
 	$sql .= "ORDER BY date DESC";
 	$resource = mysql_query($sql);
-	$current_time = $_POST['latest_news_time'];
+	$current_time = $_POST['chat_latest_news_time'];
 	$item = mysql_fetch_assoc($resource);
 	$last_news_time = $item['date'];
 		while ($last_news_time < $current_time) {
@@ -61,7 +61,11 @@ if(isset($_POST['latest_news_time'])){
 			}
 	}
 	?>
+	
 	<li class="response" name="<?php echo $item['id'] ?>" id="<?php echo $item['date'] ?>">
+	<script>
+	alert("IFFF STATEMENT");
+	</script>
 							<span class="feedtext">
 								<span class="left">
 									<?php echo $item['name'].' says:' ?>
@@ -74,19 +78,14 @@ if(isset($_POST['latest_news_time'])){
 	</li>
 	<?php
 	exit;
-	/*
-	
-	
-	
-	
-	*/
+
 }
 /**
 * Getting news Items and preparing sql query with respect to request
 **/
 $sql = "SELECT * FROM comments_$id ORDER BY date DESC LIMIT 0, 10";
-	if(isset($_POST['last_time'])){
-		$sql = "SELECT * FROM comments_$id WHERE date < '".$_POST['last_time']."' ORDER BY date DESC LIMIT 0, 10";
+	if(isset($_POST['chat_last_time'])){
+		$sql = "SELECT * FROM comments_$id WHERE date < '".$_POST['chat_last_time']."' ORDER BY date DESC LIMIT 0, 10";
 	}
 $resource = mysql_query($sql);
 $news = array();
@@ -126,19 +125,19 @@ $(function(){
 	* Integrating Scroll Pagination
 	**/
 	var feeds = $("#feeds ul");
-	var last_time = feeds.children().last().attr('id');
+	var chat_last_time = feeds.children().last().attr('id');
     feeds.scrollFeedPagination({
         'contentPage': 'chat.php',
         'contentData': {
-            'last_time' : last_time
+            'chat_last_time' : chat_last_time
         },
         'scrollTarget': feeds, 
         'beforeLoad': function(){
             feeds.parents('#feeds').find('.loading').fadeIn();
         },
         'afterLoad': function(elementsLoaded){
-            last_time = feeds.children().last().attr('id');
-            feeds.scrollFeedPagination.defaults.contentData.last_time = last_time;
+            chat_last_time = feeds.children().last().attr('id');
+            feeds.scrollFeedPagination.defaults.contentData.chat_last_time = chat_last_time;
             feeds.parents('#feeds').find('.loading').fadeOut();
             var i = 1;
             $(elementsLoaded).fadeInWithDelay();
@@ -171,7 +170,7 @@ if(!id){
             'url' : 'chat.php',
             'type' : 'POST',
             'data' : {
-                'latest_news_time' : id  
+                'chat_latest_news_time' : id  
             },
             success : function(data){
 				setTimeout('updateFeed()', 1000);
@@ -198,7 +197,7 @@ function addNews(){
 		alert("Name and News are required Values");
 		return false;
 	}
-	values['addnews'] = '';
+	values['chat_addnews'] = '';
 	$.ajax({
         'url' : '',
         'type' : 'POST',

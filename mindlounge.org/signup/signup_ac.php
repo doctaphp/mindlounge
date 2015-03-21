@@ -10,10 +10,10 @@ $tbl_name = "temp_members_db";
 $confirm_code=md5(uniqid(rand())); 
 
 // values sent from form 
-$fname=$_POST['fname'];
-$lname=$_POST['lname'];
-$email=$_POST['email'];
-$pass = $_POST['password'];
+$fname= mysql_real_escape_string($_POST['fname']);
+$lname= mysql_real_escape_string($_POST['lname']);
+$email= mysql_real_escape_string($_POST['email']);
+$pass = mysql_real_escape_string($_POST['password']);
 $pass = encrypt($pass, ENCRYPTION_KEY);
 
 $picName = basename($_FILES["profilePic"]["name"]);
